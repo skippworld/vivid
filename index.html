@@ -3,8 +3,27 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-<title>SKIPP. — Content Director with Impact</title>
-<meta name="description" content="콘텐츠 성장과 브랜드 경험을 설계하는 콘텐츠 디렉터, 김영훈." />
+<title>김영훈 (SKIPP) — 콘텐츠 디렉터 포트폴리오</title>
+<meta name="description" content="기획부터 촬영·디자인·편집·UI/UX까지 직접 설계하는 콘텐츠 디렉터. 채널과 브랜드를 실제 숫자로 성장시킵니다." />
+
+<!-- Open Graph / Social preview -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="김영훈 (SKIPP) — 콘텐츠 디렉터 포트폴리오" />
+<meta property="og:description" content="기획부터 촬영·디자인·편집·UI/UX까지 직접 설계하는 콘텐츠 디렉터. 채널과 브랜드를 실제 숫자로 성장시킵니다." />
+<meta property="og:image" content="og-image.svg" />
+<meta property="og:image:secure_url" content="og-image.svg" />
+<meta property="og:image:type" content="image/svg+xml" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="SKIPP — 김영훈 콘텐츠 디렉터 포트폴리오" />
+<meta property="og:site_name" content="SKIPPWORLD" />
+<meta property="og:locale" content="ko_KR" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="김영훈 (SKIPP) — 콘텐츠 디렉터 포트폴리오" />
+<meta name="twitter:description" content="기획부터 촬영·디자인·편집·UI/UX까지 직접 설계하는 콘텐츠 디렉터." />
+<meta name="twitter:image" content="og-image.svg" />
 <meta name="color-scheme" content="dark" />
 <meta name="theme-color" content="#0A0B14" />
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
@@ -875,7 +894,8 @@
     text-transform:uppercase;letter-spacing:.06em;font-weight:600;
     text-align:right;
   }
-  .chr-item:hover
+  .chr-item:hover{background:rgba(155,92,255,.05);padding-left:36px}
+
   @media(max-width:900px){
     .chr-item{
       grid-template-columns:1fr !important;
@@ -894,11 +914,7 @@
     .chr-title{font-size:1rem !important;line-height:1.5 !important}
     .chr-sub{font-size:.82rem !important;margin-top:4px !important;line-height:1.5 !important}
     .chr-cat-tag{
-      font-size:.66rem !important;color:var(--mute-2) !important;
-      letter-spacing:.04em !important;
-      text-align:left !important;
-      padding-top:4px !important;
-      opacity:.7 !important;
+      display:none !important;
     }
     .chr-cat-head{padding:18px 20px !important;gap:12px !important}
     .chr-cat-name{font-size:.82rem !important;letter-spacing:.14em !important}
@@ -924,7 +940,8 @@
   }
   .other-section h2 em{font-style:normal;color:var(--lime)}
   .other-grid{
-    display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1080px;margin:0 auto;
+    display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:1080px;margin:0 auto;
+    align-items:start;
   }
   @media(max-width:840px){.other-grid{grid-template-columns:1fr}}
   .other-card{
@@ -956,6 +973,27 @@
     transition:transform .2s,background .2s;
   }
   .other-card .cta:hover{transform:translateY(-2px);background:#fff}
+  .other-sub{
+    margin-top:22px;padding:18px 20px;
+    background:rgba(255,255,255,.03);
+    border-left:2px solid rgba(255,255,255,.18);
+    border-radius:0 12px 12px 0;
+  }
+  .other-sub-tag{
+    font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--mute);font-weight:700;
+    margin-bottom:6px;
+  }
+  .other-sub-title{
+    font-size:.95rem;font-weight:700;color:var(--ink-2);
+    letter-spacing:-.01em;margin-bottom:8px;
+  }
+  .other-sub p{
+    font-size:.86rem;line-height:1.55;color:var(--ink-2);
+    font-weight:500;opacity:.85;
+  }
+  .other-sub p b{font-weight:700;opacity:1;color:#fff}
+
 
   /* ═══════════ ABOUT / CONTACT ═══════════ */
   .about-section{
@@ -1295,7 +1333,7 @@
                 </div>
                 <div class="panel-block">
                   <div class="panel-block-lab">Solution</div>
-                  <p>체터뷰·체대파일러·제이슨로그 등 <b>인물 시리즈 7종</b>으로 포맷 분화.<br/>채널 → <b>대치동 오프라인 학원</b> 런칭으로 연결.<br/>체대입시생·소방공무원 체력시험 교육 커리큘럼 운영.<br/>연세대 · 세종대 · 공군사관학교 · 해군사관학교 · 경찰학교 합격 배출.</p>
+                  <p>체터뷰·체대파일러·제이슨로그 등 <b>인물 시리즈 7종</b>으로 포맷 분화.<br/>채널 → <b>대치동 오프라인 학원</b> 런칭으로 연결.<br/>체대입시생·소방공무원 체력시험 교육 커리큘럼 운영.<br/><b>연세대 · 세종대 · 공군사관학교 · 해군사관학교 · 경찰대 등 합격생 다수 배출.</b></p>
                 </div>
               </div>
               <div class="panel-links">
@@ -1418,7 +1456,7 @@
                 <span class="lab">앨범 아트워크<br/>의뢰 누적 작업</span>
               </div>
               <div class="stat-row">
-                <div class="stat-cell"><div class="num">앨범</div><div class="lab">아트워크 단독 의뢰</div></div>
+                <div class="stat-cell"><div class="num">★ 4.9</div><div class="lab">크몽 평균 평점</div></div>
                 <div class="stat-cell"><div class="num">IP</div><div class="lab">아티스트 시각 시스템</div></div>
               </div>
               <div class="contrib">
@@ -1463,15 +1501,18 @@
       <div class="other-card">
         <span class="tag">B-boy Culture</span>
         <h3>에이런컴퍼니</h3>
-        <div class="sub">A-Run Crew</div>
         <p>브레이킹(B-boy) 문화 기반 컴퍼니.<br/><b>WBC 국가대표 선발전 (2022·2023·2024)</b> 홍보영상 디렉팅.<br/>B-ON TOP 메인 영상 및 백월 영상 디자인.<br/>브레이킹 씬의 영상·브랜딩 작업.</p>
         <a class="cta" href="https://youtube.com/playlist?list=PLxytJQTYF-QXssEpcK6V-ncxsGfNmdlJy" target="_blank" rel="noopener">영상 작업 목록 <span>↗</span></a>
       </div>
       <div class="other-card">
-        <span class="tag">Production</span>
+        <span class="tag">Production · Outsourced</span>
         <h3>배턴터치</h3>
-        <div class="sub">MAX Inc</div>
-        <p>스포츠·피트니스 채널을 위한 영상 제작 디렉팅.<br/>인물 중심의 포맷과 시리즈성 콘텐츠로 채널 운영.</p>
+        <p><b>맥스체대입시 (MAX Inc)</b>의 외주 의뢰 작업.<br/>‘드림한양’ · ‘슈퍼맥스’ 시리즈 촬영·편집 진행.<br/>대본 · 구성 · 톤까지 직접 설계.<br/><b>영상 내 음원도 직접 제작.</b></p>
+        <div class="other-sub">
+          <div class="other-sub-tag">SUB · App Project</div>
+          <div class="other-sub-title">Keepit · 1:1 PT 매칭 어플</div>
+          <p>배턴터치에서 진행한 어플 프로젝트.<br/>유튜버 <b>고러쉬</b>, <b>빵느</b> 등 트레이너 콘텐츠 영상 편집.<br/><span style="opacity:.55">※ 현재 서비스 종료</span></p>
+        </div>
         <a class="cta" href="https://youtube.com/playlist?list=PLxytJQTYF-QUpvPpislNriB4tKBVV2O4N" target="_blank" rel="noopener">영상 작업 목록 <span>↗</span></a>
       </div>
     </div>
@@ -1483,7 +1524,7 @@
   <div class="wrap">
     <div class="sec-head">
       <div class="sec-meta">SECTION 03 — BACKGROUND</div>
-      <h2>디렉터 이전의 <em>이력</em>.</h2>
+      <h2>수십 년간 쌓은<br/><em>감각의 근거</em>.</h2>
     </div>
 
     <div class="big-stats-grid">
