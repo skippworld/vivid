@@ -533,6 +533,9 @@
   .marquee{
     display:flex;gap:80px;width:max-content;
     animation:marq 30s linear infinite;
+    will-change:transform;
+    transform:translateZ(0);
+    backface-visibility:hidden;
   }
   @keyframes marq{
     from{transform:translateX(0)}
@@ -1453,8 +1456,6 @@
     <span class="m-sep"></span>
     <div class="m-item"><span class="m-num">4</span><span class="m-lab">Featured Cases</span></div>
     <span class="m-sep"></span>
-    <div class="m-item"><span class="m-num is-orange">대치동</span><span class="m-lab">Offline Center</span></div>
-    <span class="m-sep"></span>
     <!-- duplicate for marquee loop -->
     <div class="m-item"><span class="m-num">1000%</span><span class="m-lab">YouTube Growth</span></div>
     <span class="m-sep"></span>
@@ -1465,8 +1466,6 @@
     <div class="m-item"><span class="m-num is-lime">18Y</span><span class="m-lab">Performer Career</span></div>
     <span class="m-sep"></span>
     <div class="m-item"><span class="m-num">4</span><span class="m-lab">Featured Cases</span></div>
-    <span class="m-sep"></span>
-    <div class="m-item"><span class="m-num is-orange">대치동</span><span class="m-lab">Offline Center</span></div>
     <span class="m-sep"></span>
   </div>
 </section>
