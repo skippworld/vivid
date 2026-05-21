@@ -297,6 +297,122 @@
   footer .footer-credit b{
     color:#D97757;font-weight:700;
   }
+
+  /* === Role summary === */
+  .role-summary{
+    display:inline-block;
+    margin:-18px 0 36px;
+    font-size:.92rem;color:var(--ink-2);font-weight:500;
+    letter-spacing:-.005em;
+  }
+  .role-summary b{font-weight:700;color:#fff}
+  @media(max-width:680px){
+    .role-summary{font-size:.84rem;margin:-12px 0 28px}
+  }
+  /* === CV button === */
+  .cv-btn{
+    display:inline-flex;align-items:center;gap:8px;
+    background:#fff;color:#000;
+    padding:11px 20px;border-radius:999px;
+    font-weight:700;font-size:.86rem;letter-spacing:-.005em;
+    transition:transform .2s,background .2s,box-shadow .2s,color .2s;
+    box-shadow:0 8px 24px -10px rgba(255,255,255,.25);
+  }
+  .cv-btn:hover{
+    transform:translateY(-2px);
+    background:var(--lime);color:#000;
+    box-shadow:0 12px 32px -10px rgba(197,255,77,.45);
+  }
+  /* === Panel corporate info bar === */
+  .panel-corp{
+    display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:6px;
+    margin:-12px 0 14px;
+    font-size:.76rem;letter-spacing:-.002em;
+    color:var(--mute);
+  }
+  .pc-lab{
+    font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--panel-accent);font-weight:700;
+    margin-right:2px;
+  }
+  .pc-val{color:var(--ink-2);font-weight:600}
+  .pc-sep{color:var(--mute-2);margin:0 1px}
+  /* === Absolute value (inline in stat-big) === */
+  .abs-line{
+    display:inline-block;
+    font-family:var(--display);font-weight:800;
+    color:var(--panel-accent);
+    font-size:.88rem;letter-spacing:-.01em;
+    margin-top:4px;
+  }
+  .abs-note{
+    font-family:var(--sans);font-size:.66rem;
+    color:var(--mute);font-weight:500;letter-spacing:0;
+    margin-left:4px;
+  }
+  /* === Team note (compact inline) === */
+  .team-note{
+    margin-top:10px;padding-top:10px;
+    border-top:1px dashed var(--line);
+    display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;
+    font-size:.76rem;
+  }
+  .tn-lab{
+    font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--panel-accent);font-weight:700;
+  }
+  .tn-val{font-size:.78rem;color:var(--ink-2);font-weight:600;letter-spacing:-.002em}
+  /* === Other Works meta === */
+  .other-meta{
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;
+    color:var(--mute);font-weight:600;
+    margin-bottom:18px;
+    padding-bottom:12px;
+    border-bottom:1px dashed rgba(255,255,255,.08);
+  }
+  /* === Background section toggle === */
+  .bg-toggle{
+    display:flex;align-items:center;justify-content:space-between;
+    width:100%;max-width:1080px;margin:0 auto;
+    padding:24px 32px;
+    background:linear-gradient(135deg,rgba(155,92,255,.08),rgba(255,255,255,.02));
+    border:1px solid var(--line);
+    border-radius:16px;cursor:pointer;
+    transition:border-color .3s,background .3s,transform .3s;
+  }
+  .bg-toggle:hover{
+    border-color:var(--purple);
+    background:linear-gradient(135deg,rgba(155,92,255,.14),rgba(255,255,255,.04));
+    transform:translateY(-2px);
+  }
+  .bg-toggle-text{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left}
+  .bg-toggle-lead{
+    font-family:var(--sans);font-size:1.1rem;font-weight:700;color:#fff;
+    letter-spacing:-.015em;
+  }
+  .bg-toggle-sub{
+    font-family:var(--mono);font-size:.74rem;font-weight:500;
+    color:var(--mute);letter-spacing:.04em;
+  }
+  .bg-toggle-chev{
+    font-size:1.4rem;color:var(--purple);font-weight:700;
+    transition:transform .4s cubic-bezier(.16,1,.3,1);
+  }
+  .bg-toggle.is-open .bg-toggle-chev{transform:rotate(180deg)}
+  .chr-categories.is-collapsed{
+    max-height:0 !important;opacity:0;overflow:hidden;
+    margin-top:0 !important;
+    transition:max-height .5s ease,opacity .4s ease,margin-top .3s ease;
+    pointer-events:none;
+  }
+  .chr-categories:not(.is-collapsed){
+    margin-top:36px;opacity:1;
+  }
+  @media(max-width:680px){
+    .bg-toggle{padding:20px 22px}
+    .bg-toggle-lead{font-size:1rem}
+    .bg-toggle-sub{font-size:.7rem}
+  }
   /* ═══════ HERO TOOLS ROW ═══════ */
   .hero-tools{
     margin-top:84px;
@@ -498,7 +614,7 @@
   .horiz-panel{
     width:100vw;height:100vh;flex-shrink:0;
     display:flex;align-items:center;justify-content:center;
-    padding:120px var(--gutter) 60px;
+    padding:80px var(--gutter) 30px;
     position:relative;
   }
 
@@ -574,15 +690,27 @@
   }
 
   .panel-grid{
-    display:grid;grid-template-columns:1.1fr .9fr;gap:64px;
-    align-items:center;position:relative;z-index:2;
+    display:grid;grid-template-columns:1.1fr .9fr;gap:40px;
+    align-items:start;position:relative;z-index:2;
+    width:100%;
+    max-height:calc(100vh - 130px);
+    overflow-y:auto;
+    overflow-x:hidden;
+    scrollbar-width:thin;
+    scrollbar-color:rgba(255,255,255,.2) transparent;
+    padding-right:6px;
   }
+  .panel-grid::-webkit-scrollbar{width:6px;height:0}
+  .panel-grid::-webkit-scrollbar-track{background:transparent}
+  .panel-grid::-webkit-scrollbar-thumb{background:rgba(255,255,255,.2);border-radius:999px}
+  .panel-grid::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,.4)}
   @media(max-width:1024px){.panel-grid{grid-template-columns:1fr;gap:32px}}
 
   .panel-meta{
-    display:flex;align-items:center;gap:14px;margin-bottom:18px;
-    font-family:var(--mono);font-size:.76rem;font-weight:600;letter-spacing:.14em;
+    display:flex;align-items:center;gap:12px;margin-bottom:12px;
+    font-family:var(--mono);font-size:.72rem;font-weight:600;letter-spacing:.12em;
     text-transform:uppercase;color:var(--mute);
+    flex-wrap:wrap;
   }
   .panel-num{
     background:var(--panel-accent);color:#000;
@@ -591,8 +719,8 @@
   }
   .panel-title{
     font-family:var(--display);font-weight:700;
-    font-size:clamp(2.6rem,5.4vw,5rem);line-height:.95;letter-spacing:-.04em;
-    margin-bottom:18px;
+    font-size:clamp(1.9rem,3.6vw,3rem);line-height:.98;letter-spacing:-.03em;
+    margin-bottom:12px;
     color:transparent;
     -webkit-text-stroke:1.5px var(--mute-2);
     text-stroke:1.5px var(--mute-2);
@@ -624,22 +752,28 @@
     -webkit-text-fill-color:transparent;
   }
   .panel-sub{
-    font-size:clamp(1.02rem,1.2vw,1.18rem);
-    color:var(--ink-2);max-width:42ch;line-height:1.6;font-weight:500;
-    margin-bottom:32px;
+    font-size:clamp(.86rem,.95vw,.98rem);
+    color:var(--ink-2);max-width:46ch;line-height:1.55;font-weight:500;
+    margin-bottom:16px;
   }
   .panel-sub b{font-weight:700;color:var(--panel-accent)}
 
   .panel-blocks{
-    display:grid;grid-template-columns:1fr;gap:18px;margin-bottom:24px;
+    display:grid;grid-template-columns:1fr;gap:8px;margin-bottom:12px;
   }
   .panel-block{
     background:rgba(255,255,255,.03);
     border:1px solid var(--line);
     border-left:2px solid var(--panel-accent);
-    padding:16px 22px;border-radius:6px;
-    backdrop-filter:blur(8px);
+    padding:10px 14px;border-radius:6px;
   }
+  .panel-block-lab{
+    font-family:var(--mono);font-size:.6rem !important;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--panel-accent);font-weight:700;
+    margin-bottom:4px !important;
+    display:block;
+  }
+  .panel-block p{font-size:.82rem !important;line-height:1.5 !important}
   .panel-block-lab{
     font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;
     text-transform:uppercase;color:var(--panel-accent);font-weight:700;
@@ -654,7 +788,7 @@
   .panel-stats{
     background:linear-gradient(135deg,rgba(255,255,255,.04),rgba(255,255,255,.01));
     border:1px solid var(--line);
-    border-radius:24px;padding:36px;
+    border-radius:18px;padding:18px 22px;
     backdrop-filter:blur(12px);
     position:relative;overflow:hidden;
   }
@@ -664,14 +798,18 @@
   }
 
   .stat-big{
-    display:flex;align-items:baseline;gap:14px;
-    padding-bottom:28px;margin-bottom:24px;
+    display:flex;align-items:baseline;gap:10px;
+    padding-bottom:12px;margin-bottom:12px;
     border-bottom:1px solid var(--line);
   }
   .stat-big .num{
     font-family:var(--display);font-weight:700;
-    font-size:clamp(3.4rem,6vw,5.4rem);line-height:.9;letter-spacing:-.045em;
+    font-size:clamp(2.2rem,3.8vw,3.4rem);line-height:.9;letter-spacing:-.04em;
     color:var(--panel-accent);
+  }
+  .stat-big .lab{
+    font-family:var(--mono);font-size:.66rem !important;
+    letter-spacing:.08em;line-height:1.4;
   }
   .stat-big .unit{font-size:.5em;color:var(--mute);font-weight:600;margin-left:4px}
   .stat-big .lab{
@@ -681,16 +819,16 @@
   }
 
   .stat-row{
-    display:grid;grid-template-columns:1fr 1fr;gap:14px;
-    margin-bottom:28px;
+    display:grid;grid-template-columns:1fr 1fr;gap:10px;
+    margin-bottom:16px;
   }
   .stat-cell{
-    padding:14px 16px;border:1px solid var(--line);border-radius:10px;
+    padding:10px 14px;border:1px solid var(--line);border-radius:8px;
     background:rgba(255,255,255,.02);
   }
   .stat-cell .num{
-    font-family:var(--display);font-weight:700;font-size:1.65rem;
-    line-height:1;letter-spacing:-.03em;color:#fff;
+    font-family:var(--display);font-weight:700;font-size:1.3rem;
+    line-height:1;letter-spacing:-.025em;color:#fff;
   }
   .stat-cell .num .unit{font-size:.55em;color:var(--mute);font-weight:600;margin-left:2px}
   .stat-cell .lab{
@@ -699,14 +837,14 @@
   }
 
   /* Contribution graph */
-  .contrib{display:flex;flex-direction:column;gap:14px}
+  .contrib{display:flex;flex-direction:column;gap:8px}
   .contrib-head{
-    font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;
+    font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;
     text-transform:uppercase;color:var(--mute);font-weight:700;
-    margin-bottom:6px;display:flex;justify-content:space-between;
+    margin-bottom:4px;display:flex;justify-content:space-between;
   }
-  .c-row{display:grid;grid-template-columns:130px 1fr 44px;gap:12px;align-items:center}
-  .c-name{font-size:.82rem;color:var(--ink-2);font-weight:600;letter-spacing:-.005em}
+  .c-row{display:grid;grid-template-columns:110px 1fr 36px;gap:10px;align-items:center}
+  .c-name{font-size:.74rem;color:var(--ink-2);font-weight:600;letter-spacing:-.003em}
   .c-bar{
     height:6px;background:rgba(255,255,255,.06);border-radius:999px;
     overflow:hidden;position:relative;
@@ -724,16 +862,16 @@
 
   /* Links inside panel */
   .panel-links{
-    margin-top:24px;padding-top:24px;border-top:1px solid var(--line);
+    margin-top:10px;padding-top:10px;border-top:1px solid var(--line);
   }
   .pl-grid{
-    display:grid;grid-template-columns:1fr 1fr;gap:6px;
+    display:grid;grid-template-columns:1fr 1fr;gap:5px;
   }
   .pl-item{
-    display:flex;align-items:center;justify-content:space-between;gap:10px;
-    padding:9px 14px;background:rgba(255,255,255,.03);
-    border:1px solid var(--line);border-radius:8px;
-    font-family:var(--mono);font-size:.74rem;font-weight:600;
+    display:flex;align-items:center;justify-content:space-between;gap:8px;
+    padding:7px 11px;background:rgba(255,255,255,.03);
+    border:1px solid var(--line);border-radius:7px;
+    font-family:var(--mono);font-size:.68rem;font-weight:600;
     color:var(--ink-2);letter-spacing:-.002em;
     transition:background .2s,border-color .2s,color .2s,transform .2s;
   }
@@ -1103,10 +1241,38 @@
     .horiz-section{height:auto !important}
     .horiz-sticky{position:relative;height:auto;display:block}
     .horiz-track{flex-direction:column;width:100%;transform:none !important}
-    .horiz-panel{width:100%;height:auto;padding:80px var(--gutter);min-height:auto}
+    .horiz-panel{width:100%;height:auto;padding:80px var(--gutter);min-height:auto;overflow:visible}
+    .panel-grid{max-height:none !important;overflow:visible !important}
     .hero-bignum{display:none}
     .panel-bignum{font-size:8rem;top:-20px}
   }
+
+  /* ═══════ MOBILE: Disable horizontal scroll-jacking, stack panels vertically ═══════ */
+  @media(max-width:900px){
+    .horiz-section{height:auto !important}
+    .horiz-sticky{position:relative;height:auto;display:block;overflow:visible}
+    .horiz-track{
+      flex-direction:column !important;
+      width:100% !important;
+      transform:none !important;
+      height:auto !important;
+    }
+    .horiz-panel{
+      width:100% !important;
+      height:auto !important;
+      min-height:auto !important;
+      padding:80px var(--gutter) !important;
+    }
+    .panel-grid{
+      grid-template-columns:1fr !important;
+      gap:24px !important;
+      max-height:none !important;
+      overflow:visible !important;
+    }
+    .hero-bignum{display:none}
+    .panel-bignum{font-size:8rem;top:-20px}
+  }
+
 </style>
 </head>
 <body>
@@ -1122,7 +1288,7 @@
 <div class="topbar">
   <div class="topbar-in">
     <div class="logo-pill"><span class="led"></span>SKIPP. / KIM YOUNGHOON</div>
-    <a href="mailto:skippkim@naver.com" class="top-cta">Hire me <span>↗</span></a>
+    <a href="#about" class="top-cta">CONTACT <span>↓</span></a>
   </div>
 </div>
 
@@ -1134,6 +1300,7 @@
 
   <div class="wrap">
     <div class="hero-eyebrow"><span class="led"></span>AVAILABLE FOR NEW PROJECTS · 2026</div>
+    <div class="role-summary">콘텐츠 디렉터 / PD · <b>8년차</b> · 채널 4개 디렉팅 / 누적 <b>700편+</b></div>
 
     <h1 class="hero-title">
       <span class="line"><span class="word delay-1">콘텐츠를 설계하고,</span></span>
@@ -1148,6 +1315,7 @@
         채널과 브랜드를 <b>실제 숫자로 성장시킵니다.</b>
       </p>
       <div class="hero-cta-stack">
+        <a href="./skippCV.pdf" download class="cv-btn">이력서 PDF 다운로드 <span>↓</span></a>
         <div class="scroll-hint">SCROLL <span class="arrow"></span></div>
       </div>
     </div>
@@ -1271,10 +1439,16 @@
               <div class="panel-meta">
                 <span class="panel-num">No. 001</span>
                 <span>YOUTUBE · UI/UX</span>
-                <span>2023.10 — Present</span>
+                <span>2022.10 — 현재 (재직중)</span>
+              </div>
+              <div class="panel-corp">
+                <span class="pc-lab">COMPANY</span>
+                <span class="pc-val">엘앤씨부동산중개법인</span>
+                <span class="pc-sep">·</span>
+                <span class="pc-val">콘텐츠기획 팀장</span>
               </div>
               <h3 class="panel-title">마이옥션<span class="accent">TV</span></h3>
-              <p class="panel-sub">부동산경매 정보를 “계속 보고 싶어지는” 자체 미디어 채널로 재설계.<br/>채널 운영부터 <b>자동결제 전환 동선</b>까지 통합 설계.</p>
+              <p class="panel-sub">부동산경매라는 어려운 정보 영역을<br/>대중이 ‘찾아보고 싶어지는’ 콘텐츠로 재설계.<br/>채널 성장부터 <b>자동결제 전환 동선</b>까지<br/>하나의 흐름으로 연결한 자체 미디어 운영.</p>
               <div class="panel-blocks">
                 <div class="panel-block">
                   <div class="panel-block-lab">Problem</div>
@@ -1295,11 +1469,15 @@
             <div class="panel-stats">
               <div class="stat-big">
                 <span class="num count" data-count="1000" data-suffix="%">0<span class="unit">%</span></span>
-                <span class="lab">YouTube<br/>구독자 성장률</span>
+                <span class="lab">YouTube 구독자 성장률<br/><b class="abs-line">1,800 → 22,000명</b> <span class="abs-note">(2.2만 · 26.5월)</span></span>
               </div>
               <div class="stat-row">
                 <div class="stat-cell"><div class="num count" data-count="400" data-suffix="%">0<span class="unit">%</span></div><div class="lab">자동결제 전환율</div></div>
                 <div class="stat-cell"><div class="num count" data-count="400" data-suffix="편+">0<span class="unit">편+</span></div><div class="lab">콘텐츠 누계</div></div>
+              </div>
+              <div class="team-note">
+                <span class="tn-lab">TEAM</span>
+                <span class="tn-val">팀원 PD 채용 · 교육 · 현장 운영 (1명 직접 관리)</span>
               </div>
               <div class="contrib">
                 <div class="contrib-head"><span>Contribution</span><span>%</span></div>
@@ -1322,14 +1500,20 @@
               <div class="panel-meta">
                 <span class="panel-num">No. 002</span>
                 <span>CHANNEL IP · OFFLINE</span>
-                <span>Long-running</span>
+                <span>2019.09 — 2022.01 (2년 5개월)</span>
+              </div>
+              <div class="panel-corp">
+                <span class="pc-lab">COMPANY</span>
+                <span class="pc-val">제이슨의V트레이닝</span>
+                <span class="pc-sep">·</span>
+                <span class="pc-val">콘텐츠 총괄 PD</span>
               </div>
               <h3 class="panel-title">체대친구들 <span class="accent">CDF</span></h3>
               <p class="panel-sub">체대입시 전문 채널을 인물·세계관 중심의 IP 콘텐츠로 재설계.<br/>채널이 쌓은 신뢰가 <b>대치동 오프라인 학원</b>으로 확장.<br/>입시 커리큘럼의 온·오프라인 연결을 완성한 사례.</p>
               <div class="panel-blocks">
                 <div class="panel-block">
                   <div class="panel-block-lab">Problem</div>
-                  <p>체대입시 정보는 넘치는데, 어느 채널도 ‘인물’이 안 보였음.<br/>정보 나열형 영상으로는 시청자가 머무를 이유가 부족.<br/>채널 신뢰만으로는 실제 입시 결과까지 책임지기 어려웠음.</p>
+                  <p>체대입시 정보는 넘치는데,<br/>어느 채널도 주목받지 못했음.<br/>정보 나열형 영상으로는 시청자가 머무를 이유가 부족.<br/>채널 신뢰만으로는 실제 입시 결과까지 책임지기 어려웠음.</p>
                 </div>
                 <div class="panel-block">
                   <div class="panel-block-lab">Solution</div>
@@ -1352,7 +1536,7 @@
             <div class="panel-stats">
               <div class="stat-big">
                 <span class="num">대치동</span>
-                <span class="lab">오프라인 센터<br/>확장 성공</span>
+                <span class="lab">오프라인 학원 확장<br/><b class="abs-line">17,000 → 33,000명</b> <span class="abs-note">(1.7만 → 3.3만)</span></span>
               </div>
               <div class="stat-row">
                 <div class="stat-cell"><div class="num count" data-count="7" data-suffix="개">0<span class="unit">개</span></div><div class="lab">시리즈 포맷</div></div>
@@ -1378,7 +1562,13 @@
               <div class="panel-meta">
                 <span class="panel-num">No. 003</span>
                 <span>BX · VISUAL SYSTEM</span>
-                <span>㈜원더윈드코리아</span>
+                <span>2022.08 — 2023.05 (10개월)</span>
+              </div>
+              <div class="panel-corp">
+                <span class="pc-lab">COMPANY</span>
+                <span class="pc-val">㈜원더윈드코리아</span>
+                <span class="pc-sep">·</span>
+                <span class="pc-val">비주얼 디렉터 / 디자이너</span>
               </div>
               <h3 class="panel-title">블랙비스트 ×<br/><span class="accent">윌리워스튜디오</span></h3>
               <p class="panel-sub">한 회사 안의 <b>두 브랜드 비주얼 시스템</b>을 설계.<br/>데님 컬렉션과 스트릿 애슬레저,<br/>각각의 결을 살리되 하나의 시스템으로 정렬.</p>
@@ -1389,7 +1579,7 @@
                 </div>
                 <div class="panel-block">
                   <div class="panel-block-lab">Solution</div>
-                  <p><b>블랙비스트</b><br/>Fashion Kode · Trend Fair · 독일 K-전시회 선정.<br/><br/><b>윌리워스튜디오</b><br/>무신사 입점 · 룩북 제작 · 완판 견인.</p>
+                  <p><b>블랙비스트</b><br/>프리미엄 데님 컬렉션 브랜드로 BI/BX 구성.<br/>패션코드 정식 런칭 · 트렌드페어 · 독일 K-전시회 선정 · 무신사 입점.<br/><br/><b>윌리워스튜디오</b><br/>스트릿 애슬레저 톤으로 재구성.<br/>무신사 아울렛 제품군 구성 · 룩북 제작 · SNS 마케팅으로 완판 견인.</p>
                 </div>
               </div>
               <div class="panel-links">
@@ -1430,18 +1620,24 @@
               <div class="panel-meta">
                 <span class="panel-num">No. 004</span>
                 <span>ALBUM ARTWORK</span>
-                <span>Artist · SKIPPWORKS</span>
+                <span>2022.08 — 현재 (재직중)</span>
+              </div>
+              <div class="panel-corp">
+                <span class="pc-lab">FORM</span>
+                <span class="pc-val">크몽 · 프리랜서</span>
+                <span class="pc-sep">·</span>
+                <span class="pc-val">@SKIPPWORKS</span>
               </div>
               <h3 class="panel-title">크몽 <span class="accent">SKIPPWORKS</span></h3>
-              <p class="panel-sub">크몽에서 아티스트명 <b>SKIPPWORKS</b>로 진행하는 앨범 아트워크 의뢰 작업.<br/>음악의 분위기와 아티스트 톤을 시각화합니다.</p>
+              <p class="panel-sub">크몽에서 아티스트명 <b>SKIPPWORKS</b>로 진행하는<br/>앨범 아트워크 작업.<br/>음악의 분위기와 아티스트의 톤을 시각화합니다.</p>
               <div class="panel-blocks">
                 <div class="panel-block">
                   <div class="panel-block-lab">Problem</div>
-                  <p>독립 아티스트의 음반 분위기를 시각화할 자산 부족.<br/>외주 결과물이 자기 음악 색과 따로 노는 경우 다수.</p>
+                  <p>아티스트의 음반 분위기를<br/>한 장의 이미지로 시각화하기 어려움.<br/>외주 결과물이 원하는 방향과 다른 경우가 다수.</p>
                 </div>
                 <div class="panel-block">
                   <div class="panel-block-lab">Solution</div>
-                  <p>음악 톤·가사·아티스트 정체성을 직접 듣고 해석해 시각으로 옮깁니다.<br/>굿즈·SNS 자산까지 이어지는 시스템으로 작업합니다.</p>
+                  <p>디테일한 분석을 통해<br/>음악 톤·가사·아티스트 정체성을 해석하여 시각화.<br/>느낌있는 아트워크 작업을 통해<br/>다양한 바운더리 섭렵 (트로트·락·발라드·캐롤 등).</p>
                 </div>
               </div>
               <div class="panel-links">
@@ -1499,14 +1695,16 @@
     </div>
     <div class="other-grid">
       <div class="other-card">
-        <span class="tag">B-boy Culture</span>
+        <span class="tag">B-boy Culture · Freelance</span>
         <h3>에이런컴퍼니</h3>
+        <div class="other-meta">2022.05 — 현재 · 프리랜서 / 콘텐츠 디렉터</div>
         <p>브레이킹(B-boy) 문화 기반 컴퍼니.<br/><b>WBC 국가대표 선발전 (2022·2023·2024)</b> 홍보영상 디렉팅.<br/>B-ON TOP 메인 영상 및 백월 영상 디자인.<br/>브레이킹 씬의 영상·브랜딩 작업.</p>
         <a class="cta" href="https://youtube.com/playlist?list=PLxytJQTYF-QXssEpcK6V-ncxsGfNmdlJy" target="_blank" rel="noopener">영상 작업 목록 <span>↗</span></a>
       </div>
       <div class="other-card">
-        <span class="tag">Production · Outsourced</span>
+        <span class="tag">Production · PD</span>
         <h3>배턴터치</h3>
+        <div class="other-meta">2019.06 — 2019.09 · PD (4개월)</div>
         <p><b>맥스체대입시 (MAX Inc)</b>의 외주 의뢰 작업.<br/>‘드림한양’ · ‘슈퍼맥스’ 시리즈 촬영·편집 진행.<br/>대본 · 구성 · 톤까지 직접 설계.<br/><b>영상 내 음원도 직접 제작.</b></p>
         <div class="other-sub">
           <div class="other-sub-tag">SUB · App Project</div>
@@ -1550,7 +1748,15 @@
       </div>
     </div>
 
-    <div class="chr-categories">
+    <button class="bg-toggle" id="bgToggle">
+      <span class="bg-toggle-text">
+        <span class="bg-toggle-lead">상세 이력 — 수상 · 무대 · 방송</span>
+        <span class="bg-toggle-sub">— 클릭하여 펼쳐보기 (총 18개 항목)</span>
+      </span>
+      <span class="bg-toggle-chev">▾</span>
+    </button>
+
+    <div class="chr-categories is-collapsed" id="bgCategories">
 
       <!-- ─── TEAM ─── -->
       <div class="chr-cat-group">
@@ -1806,22 +2012,30 @@
     requestAnimationFrame(animRing);
   }
   animRing();
-  document.querySelectorAll('a, button, .pl-item, .chr-item, .other-card, .big-stat, .prof-card').forEach(el => {
-    el.addEventListener('mouseenter', () => cursor.classList.add('is-hover'));
-    el.addEventListener('mouseleave', () => cursor.classList.remove('is-hover'));
-  });
+  if (cursor) {
+    document.querySelectorAll('a, button, .pl-item, .chr-item, .other-card, .big-stat, .prof-card').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor && cursor.classList.add('is-hover'));
+      el.addEventListener('mouseleave', () => cursor && cursor.classList.remove('is-hover'));
+    });
+  }
 
   // ────────── Scroll progress bar ──────────
   const scrollBar = document.getElementById('scrollBar');
-  window.addEventListener('scroll', () => {
-    const h = document.documentElement;
-    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
-    scrollBar.style.width = pct + '%';
-  }, {passive:true});
+  if (scrollBar) {
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement;
+      const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+      scrollBar.style.width = pct + '%';
+    }, {passive:true});
+  }
 
-  // ────────── Horizontal scroll-jacking ──────────
+  // ────────── Horizontal scroll-jacking (isolated) ──────────
+  try {
   const horizSection = document.getElementById('horizSection');
   const horizTrack = document.getElementById('horizTrack');
+  if (!horizSection || !horizTrack) {
+    console.warn('Horiz scroll: missing elements');
+  } else {
   const isMobile = window.matchMedia('(max-width:900px)').matches;
 
   if (!isMobile) {
@@ -1879,7 +2093,6 @@
         else p.classList.remove('is-active');
       });
     }
-    
     function rafLoop(){
       const diff = targetProgress - currentProgress;
       if (Math.abs(diff) > 0.0001) {
@@ -1887,17 +2100,22 @@
       } else {
         currentProgress = targetProgress;
       }
-      horizTrack.style.transform = `translate3d(${-currentProgress * cachedTrackWidth}px, 0, 0)`;
+horizTrack.style.transform = `translate3d(${-currentProgress * cachedTrackWidth}px, 0, 0)`;
       applyPanelStates(currentProgress);
       requestAnimationFrame(rafLoop);
     }
     
     // Recalculate width on load AND after a short delay (for fonts loading)
+    // Multiple recalc attempts to ensure layout is settled
     recalcWidth();
     window.addEventListener('load', recalcWidth);
     window.addEventListener('resize', recalcWidth);
     setTimeout(recalcWidth, 100);
-    setTimeout(recalcWidth, 500);
+    setTimeout(recalcWidth, 300);
+    setTimeout(recalcWidth, 800);
+    setTimeout(recalcWidth, 1500);
+    // Also recalc on next animation frame
+    requestAnimationFrame(() => requestAnimationFrame(recalcWidth));
     
     window.addEventListener('scroll', readScroll, {passive:true});
     readScroll();
@@ -1939,6 +2157,10 @@
     window.addEventListener('scroll', updatePanelsMobile, {passive:true});
     window.addEventListener('resize', updatePanelsMobile);
     updatePanelsMobile();
+  }
+  } // end if (horizSection && horizTrack)
+  } catch(err) {
+    console.warn('Horiz scroll error:', err);
   }
 
   // ────────── Count-up animation ──────────
@@ -2006,6 +2228,30 @@
   window.addEventListener('resize', updateGiants);
   updateGiants();
 
+  // ────────── Background categories toggle ──────────
+  const bgToggle = document.getElementById('bgToggle');
+  const bgCategories = document.getElementById('bgCategories');
+  if (bgToggle && bgCategories) {
+    bgToggle.addEventListener('click', () => {
+      const isCollapsed = bgCategories.classList.contains('is-collapsed');
+      if (isCollapsed) {
+        bgCategories.classList.remove('is-collapsed');
+        bgToggle.classList.add('is-open');
+        bgCategories.style.maxHeight = bgCategories.scrollHeight + 'px';
+        setTimeout(() => { bgCategories.style.maxHeight = 'none'; }, 600);
+        bgToggle.querySelector('.bg-toggle-sub').textContent = '— 클릭하여 접기';
+      } else {
+        bgCategories.style.maxHeight = bgCategories.scrollHeight + 'px';
+        requestAnimationFrame(() => {
+          bgCategories.classList.add('is-collapsed');
+          bgCategories.style.maxHeight = '0';
+        });
+        bgToggle.classList.remove('is-open');
+        bgToggle.querySelector('.bg-toggle-sub').textContent = '— 클릭하여 펼쳐보기 (수상 · 무대 · 방송 출연)';
+      }
+    });
+  }
+
   // ────────── Hero tools row reveal on scroll ──────────
   const heroTools = document.getElementById('heroTools');
   if (heroTools) {
@@ -2041,13 +2287,10 @@
   });
 
   } catch(err) {
-    // Swallow script errors silently so the page keeps rendering
-    console.warn('Portfolio script error:', err);
+    // Silently swallow errors so the page keeps rendering
   }
 })();
 </script>
-
-</div>
 
 </body>
 </html>
