@@ -327,6 +327,35 @@
     background:var(--lime);color:#000;
     box-shadow:0 12px 32px -10px rgba(197,255,77,.45);
   }
+  /* === SKIPPWORLD ghost button === */
+  .skw-btn{
+    display:inline-flex;align-items:center;gap:8px;
+    background:transparent;color:#fff;
+    padding:10px 20px;border-radius:999px;
+    border:1px solid rgba(255,255,255,.35);
+    font-family:var(--mono);
+    font-weight:700;font-size:.8rem;letter-spacing:.08em;
+    text-transform:uppercase;
+    transition:transform .2s,background .2s,border-color .2s,color .2s,box-shadow .2s;
+  }
+  .skw-btn:hover{
+    transform:translateY(-2px);
+    background:rgba(255,255,255,.06);
+    border-color:#fff;
+    box-shadow:0 8px 24px -10px rgba(255,255,255,.2);
+  }
+  .skw-btn .arr{
+    display:inline-block;transition:transform .25s ease;
+  }
+  .skw-btn:hover .arr{transform:translate(2px,-2px)}
+  .skw-sub{
+    font-family:var(--sans);
+    font-size:.72rem;font-weight:500;
+    color:var(--mute);letter-spacing:-.002em;
+    margin-top:-8px;margin-bottom:8px;
+    text-align:right;
+  }
+  @media(max-width:840px){.skw-sub{text-align:left}}
   /* === Panel corporate info bar === */
   .panel-corp{
     display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:6px;
@@ -1220,6 +1249,43 @@
     text-transform:uppercase;color:var(--mute-2);font-weight:600;
   }
 
+  /* === Back to TOP button === */
+  .to-top{
+    position:fixed;
+    right:28px;bottom:28px;
+    width:48px;height:48px;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(10,11,20,.7);
+    color:#fff;
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:999px;
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    cursor:pointer;
+    opacity:0;visibility:hidden;
+    transform:translateY(8px);
+    transition:opacity .3s ease,visibility .3s ease,transform .25s ease,background .2s,border-color .2s,box-shadow .2s;
+    z-index:9000;
+    font-family:inherit;
+  }
+  .to-top.is-visible{
+    opacity:1;visibility:visible;transform:translateY(0);
+  }
+  .to-top:hover{
+    background:rgba(255,255,255,.08);
+    border-color:#fff;
+    transform:translateY(-3px);
+    box-shadow:0 10px 28px -10px rgba(255,255,255,.25);
+  }
+  .to-top svg{width:18px;height:18px;display:block}
+  @media(max-width:680px){
+    .to-top{
+      right:18px;bottom:18px;
+      width:42px;height:42px;
+    }
+    .to-top svg{width:16px;height:16px}
+  }
+
   /* === Mask reveal === */
   .reveal-mask{
     overflow:hidden;display:inline-block;
@@ -1320,6 +1386,8 @@
       </p>
       <div class="hero-cta-stack">
         <a href="./SkippCV.pdf" download class="cv-btn">이력서 PDF 다운로드 <span>↓</span></a>
+        <a href="https://visual-skipp-portfolio2026.vercel.app/" target="_blank" rel="noopener" class="skw-btn">ENTER THE SKIPPWORLD <span class="arr">↗</span></a>
+        <div class="skw-sub">세계관으로 표현한 또 다른 포트폴리오</div>
         <div class="scroll-hint">SCROLL <span class="arrow"></span></div>
       </div>
     </div>
@@ -1994,6 +2062,14 @@
   </div>
 </section>
 
+<!-- Back to TOP -->
+<button class="to-top" id="toTop" aria-label="맨 위로 이동" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 19V5"/>
+    <path d="M5 12l7-7 7 7"/>
+  </svg>
+</button>
+
 <script>
 (function(){
   try {
@@ -2289,6 +2365,32 @@ horizTrack.style.transform = `translate3d(${-currentProgress * cachedTrackWidth}
       }
     });
   });
+
+  // ────────── Back to TOP button ──────────
+  const toTopBtn = document.getElementById('toTop');
+  if (toTopBtn) {
+    const SHOW_AFTER = 480;
+    let ticking = false;
+    const updateBtn = () => {
+      if (window.scrollY > SHOW_AFTER) {
+        toTopBtn.classList.add('is-visible');
+      } else {
+        toTopBtn.classList.remove('is-visible');
+      }
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateBtn);
+        ticking = true;
+      }
+    }, { passive: true });
+    toTopBtn.addEventListener('click', () => {
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+    });
+    updateBtn();
+  }
 
   } catch(err) {
     // Silently swallow errors so the page keeps rendering
