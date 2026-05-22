@@ -531,18 +531,19 @@
     position:relative;
   }
   .marquee{
-    display:flex;gap:80px;width:max-content;
+    display:flex;width:max-content;
     animation:marq 30s linear infinite;
     will-change:transform;
     transform:translateZ(0);
     backface-visibility:hidden;
   }
   @keyframes marq{
-    from{transform:translateX(0)}
-    to{transform:translateX(-50%)}
+    from{transform:translate3d(0,0,0)}
+    to{transform:translate3d(-50%,0,0)}
   }
   .marquee .m-item{
     display:flex;align-items:baseline;gap:14px;flex-shrink:0;
+    margin:0 40px;
   }
   .marquee .m-num{
     font-family:var(--display);font-weight:700;
@@ -1540,7 +1541,7 @@
             <div class="panel-stats">
               <div class="stat-big">
                 <span class="num count" data-count="1000" data-suffix="%">0<span class="unit">%</span></span>
-                <span class="lab">YouTube 구독자 성장률<br/><b class="abs-line">1,800 → 22,000명</b> <span class="abs-note">(2.2만 · 26.5월)</span></span>
+                <span class="lab">YouTube 구독자 성장률<br/><b class="abs-line">22,000명+</b></span>
               </div>
               <div class="stat-row">
                 <div class="stat-cell"><div class="num count" data-count="400" data-suffix="%">0<span class="unit">%</span></div><div class="lab">자동결제 전환율</div></div>
@@ -1606,8 +1607,8 @@
             </div>
             <div class="panel-stats">
               <div class="stat-big">
-                <span class="num">대치동</span>
-                <span class="lab">오프라인 학원 확장<br/><b class="abs-line">17,000 → 33,000명</b> <span class="abs-note">(1.7만 → 3.3만)</span></span>
+                <span class="num">구독자</span>
+                <span class="lab">체대입시 유튜브채널 1위<br/><b class="abs-line">17,000 → 33,000명</b></span>
               </div>
               <div class="stat-row">
                 <div class="stat-cell"><div class="num count" data-count="7" data-suffix="개">0<span class="unit">개</span></div><div class="lab">시리즈 포맷</div></div>
@@ -1719,11 +1720,11 @@
             </div>
             <div class="panel-stats">
               <div class="stat-big">
-                <span class="num count" data-count="50" data-suffix="+">0<span class="unit">+</span></span>
-                <span class="lab">앨범 아트워크<br/>의뢰 누적 작업</span>
+                <span class="num">★ 4.9</span>
+                <span class="lab">크몽 평균 평점<br/>의뢰자 만족도</span>
               </div>
               <div class="stat-row">
-                <div class="stat-cell"><div class="num">★ 4.9</div><div class="lab">크몽 평균 평점</div></div>
+                <div class="stat-cell"><div class="num count" data-count="50" data-suffix="+">0<span class="unit">+</span></div><div class="lab">앨범 아트워크 누적</div></div>
                 <div class="stat-cell"><div class="num">IP</div><div class="lab">아티스트 시각 시스템</div></div>
               </div>
               <div class="contrib">
