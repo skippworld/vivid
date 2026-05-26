@@ -531,19 +531,18 @@
     position:relative;
   }
   .marquee{
-    display:flex;width:max-content;
+    display:flex;gap:80px;width:max-content;
     animation:marq 30s linear infinite;
     will-change:transform;
     transform:translateZ(0);
     backface-visibility:hidden;
   }
   @keyframes marq{
-    from{transform:translate3d(0,0,0)}
-    to{transform:translate3d(-50%,0,0)}
+    from{transform:translateX(0)}
+    to{transform:translateX(-50%)}
   }
   .marquee .m-item{
     display:flex;align-items:baseline;gap:14px;flex-shrink:0;
-    margin:0 40px;
   }
   .marquee .m-num{
     font-family:var(--display);font-weight:700;
@@ -1194,6 +1193,22 @@
     font-family:var(--mono);font-size:.9rem;color:var(--mute);font-weight:600;
     letter-spacing:.04em;margin-bottom:64px;
   }
+  .about-intro{
+    display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;
+    margin-bottom:64px;
+  }
+  .about-intro .about-headline,.about-intro .about-real{margin-bottom:0}
+  .about-intro .about-real{margin-top:14px}
+  .about-portrait{
+    width:240px;height:300px;border-radius:20px;object-fit:cover;object-position:center top;
+    border:1px solid rgba(61,123,255,.4);
+    box-shadow:0 20px 60px rgba(0,0,0,.4);
+    filter:grayscale(15%);
+  }
+  @media(max-width:768px){
+    .about-intro{grid-template-columns:1fr;gap:28px;justify-items:start}
+    .about-portrait{width:160px;height:200px}
+  }
 
   .profile-grid{
     display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
@@ -1541,7 +1556,7 @@
             <div class="panel-stats">
               <div class="stat-big">
                 <span class="num count" data-count="1000" data-suffix="%">0<span class="unit">%</span></span>
-                <span class="lab">YouTube 구독자 성장률<br/><b class="abs-line">22,000명+</b></span>
+                <span class="lab">YouTube 구독자 성장률<br/><b class="abs-line">1,800 → 22,000명+</b></span>
               </div>
               <div class="stat-row">
                 <div class="stat-cell"><div class="num count" data-count="400" data-suffix="%">0<span class="unit">%</span></div><div class="lab">자동결제 전환율</div></div>
@@ -1607,8 +1622,8 @@
             </div>
             <div class="panel-stats">
               <div class="stat-big">
-                <span class="num">구독자</span>
-                <span class="lab">체대입시 유튜브채널 1위<br/><b class="abs-line">17,000 → 33,000명</b></span>
+                <span class="num">대치동</span>
+                <span class="lab">오프라인 학원 확장<br/><b class="abs-line">17,000 → 33,000명</b> <span class="abs-note">(1.7만 → 3.3만)</span></span>
               </div>
               <div class="stat-row">
                 <div class="stat-cell"><div class="num count" data-count="7" data-suffix="개">0<span class="unit">개</span></div><div class="lab">시리즈 포맷</div></div>
@@ -1720,11 +1735,11 @@
             </div>
             <div class="panel-stats">
               <div class="stat-big">
-                <span class="num">★ 4.9</span>
-                <span class="lab">크몽 평균 평점<br/>의뢰자 만족도</span>
+                <span class="num count" data-count="50" data-suffix="+">0<span class="unit">+</span></span>
+                <span class="lab">앨범 아트워크<br/>의뢰 누적 작업</span>
               </div>
               <div class="stat-row">
-                <div class="stat-cell"><div class="num count" data-count="50" data-suffix="+">0<span class="unit">+</span></div><div class="lab">앨범 아트워크 누적</div></div>
+                <div class="stat-cell"><div class="num">★ 4.9</div><div class="lab">크몽 평균 평점</div></div>
                 <div class="stat-cell"><div class="num">IP</div><div class="lab">아티스트 시각 시스템</div></div>
               </div>
               <div class="contrib">
@@ -1987,8 +2002,13 @@
 <section class="about-section" id="about">
   <div class="wrap">
     <div class="sec-meta" style="font-family:var(--mono);font-size:.82rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:18px">SECTION 04 — ABOUT</div>
-    <h2 class="about-headline"><em>브랜드 성장 구조</em>를 설계하는 콘텐츠 디렉터, Skipp.</h2>
-    <p class="about-real">— Kim Younghoon · Skipp.</p>
+    <div class="about-intro">
+      <div>
+        <h2 class="about-headline"><em>브랜드 성장 구조</em>를 설계하는 콘텐츠 디렉터, Skipp.</h2>
+        <p class="about-real">— Kim Younghoon · Skipp.</p>
+      </div>
+      <img class="about-portrait" src="./profile.png" alt="김영훈 Skipp 프로필"/>
+    </div>
 
     <div class="profile-grid">
       <div class="prof-card">
