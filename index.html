@@ -1199,15 +1199,23 @@
   }
   .about-intro .about-headline,.about-intro .about-real{margin-bottom:0}
   .about-intro .about-real{margin-top:14px}
+  .about-portrait-wrap{
+    position:relative;width:280px;height:340px;flex-shrink:0;
+    display:flex;align-items:flex-end;justify-content:center;
+  }
+  .about-portrait-wrap::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(ellipse at 50% 45%, rgba(61,123,255,.22) 0%, rgba(61,123,255,.06) 45%, transparent 70%);
+    filter:blur(8px);
+  }
   .about-portrait{
-    width:240px;height:300px;border-radius:20px;object-fit:cover;object-position:center top;
-    border:1px solid rgba(61,123,255,.4);
-    box-shadow:0 20px 60px rgba(0,0,0,.4);
-    filter:grayscale(15%);
+    position:relative;z-index:2;
+    width:100%;height:100%;object-fit:contain;object-position:bottom center;
+    filter:grayscale(12%);
   }
   @media(max-width:768px){
     .about-intro{grid-template-columns:1fr;gap:28px;justify-items:start}
-    .about-portrait{width:160px;height:200px}
+    .about-portrait-wrap{width:190px;height:230px}
   }
 
   .profile-grid{
@@ -2007,7 +2015,7 @@
         <h2 class="about-headline"><em>브랜드 성장 구조</em>를 설계하는 콘텐츠 디렉터, Skipp.</h2>
         <p class="about-real">— Kim Younghoon · Skipp.</p>
       </div>
-      <img class="about-portrait" src="./profile.png" alt="김영훈 Skipp 프로필"/>
+      <div class="about-portrait-wrap"><img class="about-portrait" src="./profile.png" alt="김영훈 Skipp 프로필"/></div>
     </div>
 
     <div class="profile-grid">
