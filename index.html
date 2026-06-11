@@ -356,6 +356,35 @@
     text-align:right;
   }
   @media(max-width:840px){.skw-sub{text-align:left}}
+  /* === Contact SKIPPWORLD CTA (eye-catching) === */
+  .skw-cta{
+    display:flex;flex-direction:column;align-items:center;gap:16px;
+    text-align:center;margin:56px 0 12px;
+  }
+  .skw-btn-lg{
+    display:inline-flex;align-items:center;gap:12px;
+    background:linear-gradient(135deg,var(--blue) 0%,var(--purple) 55%,var(--orange) 100%);
+    color:#fff;
+    padding:18px 42px;border-radius:999px;
+    font-family:var(--mono);
+    font-weight:700;font-size:clamp(.9rem,2.2vw,1.08rem);letter-spacing:.06em;
+    text-transform:uppercase;
+    box-shadow:0 14px 44px -12px rgba(61,123,255,.6);
+    transition:transform .25s,box-shadow .25s,filter .25s;
+  }
+  .skw-btn-lg:hover{
+    transform:translateY(-3px);
+    box-shadow:0 20px 60px -14px rgba(155,92,255,.7);
+    filter:brightness(1.08);
+  }
+  .skw-btn-lg .arr{display:inline-block;transition:transform .25s ease}
+  .skw-btn-lg:hover .arr{transform:translate(3px,-3px)}
+  .skw-sub-lg{
+    font-family:var(--sans);
+    font-size:.88rem;font-weight:500;
+    color:var(--mute);letter-spacing:-.002em;
+  }
+  @media(max-width:560px){.skw-btn-lg{padding:16px 30px;width:100%;justify-content:center}}
   /* === Panel corporate info bar === */
   .panel-corp{
     display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:6px;
@@ -1454,8 +1483,6 @@
       </p>
       <div class="hero-cta-stack">
         <a href="./SkippCV.pdf" download class="cv-btn">이력서 PDF 다운로드 <span>↓</span></a>
-        <a href="https://visual-skipp-portfolio2026.vercel.app/" target="_blank" rel="noopener" class="skw-btn">ENTER THE SKIPPWORLD <span class="arr">↗</span></a>
-        <div class="skw-sub">세계관으로 표현한 또 다른 포트폴리오</div>
         <div class="scroll-hint">SCROLL <span class="arrow"></span></div>
       </div>
     </div>
@@ -1905,9 +1932,9 @@
         <div class="desc">비보이 기반 창작 예술 활동 18년</div>
       </div>
       <div class="big-stat">
-        <div class="num count" data-count="4" data-suffix="개국">0<span class="unit">개국</span></div>
+        <div class="num count" data-count="5" data-suffix="개국">0<span class="unit">개국</span></div>
         <div class="lab">해외 공연 · 대회</div>
-        <div class="desc">스위스 · 중국 · 베트남 · 타이완</div>
+        <div class="desc">스위스 · 중국 · 베트남 · 타이완 · 싱가포르</div>
       </div>
       <div class="big-stat">
         <div class="num count" data-count="30" data-suffix="회+">0<span class="unit">회+</span></div>
@@ -2158,6 +2185,11 @@
         <div class="cm-lab">Instagram</div>
         <a class="cm-val" href="https://instagram.com/skippworld" target="_blank" rel="noopener">@skippworld</a>
       </div>
+    </div>
+
+    <div class="skw-cta">
+      <a href="https://visual-skipp-portfolio2026.vercel.app/" target="_blank" rel="noopener" class="skw-btn-lg">ENTER THE SKIPPWORLD <span class="arr">↗</span></a>
+      <div class="skw-sub-lg">세계관으로 표현한 비주얼 포트폴리오</div>
     </div>
 
     <footer>
